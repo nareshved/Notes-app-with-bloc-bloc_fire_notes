@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "523153422644",
+    "project_id": "notes-with-bloc-9c317",
+    "storage_bucket": "notes-with-bloc-9c317.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523153422644:android:3e8e1b8726af2e8c3ccd61",
+        "android_client_info": {
+          "package_name": "com.example.bloc_fire_notes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADOrO_hdIQnWTnxmKq-lqYlI5iZPq9FuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
