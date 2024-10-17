@@ -27,9 +27,11 @@ class _HomeBottomNavbarState extends State<HomeBottomNavbar> {
             mSelectedIndex = value;
           });
         },
-        indicatorColor: Theme.of(context).colorScheme.primary,
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.edit), label: "Notes"),
+          NavigationDestination(
+            icon: Icon(Icons.edit),
+            label: "Notes",
+          ),
           NavigationDestination(icon: Icon(Icons.settings), label: "Settings"),
         ],
       ),

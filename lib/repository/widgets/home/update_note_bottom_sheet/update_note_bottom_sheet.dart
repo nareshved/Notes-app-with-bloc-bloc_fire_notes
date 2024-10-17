@@ -77,6 +77,11 @@ void callMyBottomSheet(BuildContext context,
                             noteTitleController.clear();
                             noteDescController.clear();
                             Navigator.pop(context);
+
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(const SnackBar(
+                              content: Text("note Updated!"),
+                            ));
                           } else {
                             if (noteTitleController.text.isNotEmpty &&
                                 noteDescController.text.isNotEmpty) {
@@ -92,6 +97,11 @@ void callMyBottomSheet(BuildContext context,
                               noteTitleController.clear();
                               noteDescController.clear();
                               Navigator.pop(context);
+
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                content: Text("note added!"),
+                              ));
                             }
                           }
                         },

@@ -1,8 +1,6 @@
 import 'package:bloc_fire_notes/data/bloc/notes_bloc/note_bloc.dart';
 import 'package:bloc_fire_notes/data/bloc/register_user/register_bloc.dart';
 import 'package:bloc_fire_notes/data/firebase/firebase_provider.dart';
-import 'package:bloc_fire_notes/domain/constants/app_colors/app_colors.dart';
-import 'package:bloc_fire_notes/domain/constants/app_themes/light_dark_themes.dart';
 import 'package:bloc_fire_notes/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -32,17 +30,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const ScreenUtilInit(
+    return ScreenUtilInit(
       designSize: ScreenUtil.defaultSize,
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
-        // theme: ThemeData.dark(
-        //   useMaterial3: true,
-        // ),
+        theme: ThemeData(
+          useMaterial3: true,
+          fontFamily: "Merienda",
+        ),
         debugShowCheckedModeBanner: false,
         title: 'blocFire Notes',
-        home: SplashPage(),
+        home: const SplashPage(),
       ),
     );
   }

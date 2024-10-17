@@ -8,6 +8,8 @@ import 'package:bloc_fire_notes/repository/widgets/home/update_note_bottom_sheet
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({
@@ -38,10 +40,25 @@ class HomePage extends StatelessWidget {
         stream: FirebaseProvider.getNotes(),
         builder: (context, snapshot) {
           if (snapshot.data!.docs.isEmpty) {
-            return const Center(
-              child: Text("Add a note first"),
+            return Center(
+              child: Column(
+                children: [
+                  Lottie.asset("lottie/no-notes.json", fit: BoxFit.fitWidth),
+                  const Text(
+                    "Add new note first! ❤",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             );
           }
+
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator.adaptive(),
+            );
+          }
+
           if (snapshot.hasData) {
             var mData = snapshot.data!.docs;
             log(mData.length);
@@ -56,9 +73,13 @@ class HomePage extends StatelessWidget {
                   title: Text(currNotes.noteTitle),
                   subtitle: Text(currNotes.noteDes),
                   trailing: SizedBox(
-                    width: 100,
+                    width: 150,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+                        Text(DateFormat("yMd").format(
+                            DateTime.fromMillisecondsSinceEpoch(
+                                int.parse(currNotes.noteTime)))),
                         IconButton(
                             onPressed: () async {
                               callMyBottomSheet(context,
