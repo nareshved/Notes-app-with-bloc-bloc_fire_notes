@@ -10,8 +10,8 @@ class AddNoteEvent extends NoteEvents {
 
 class UpdateNoteEvent extends NoteEvents {
   NoteModel updateNote;
-
-  UpdateNoteEvent({required this.updateNote});
+  String noteId;
+  UpdateNoteEvent({required this.updateNote, required this.noteId});
 }
 
 class DeleteNoteEvent extends NoteEvents {

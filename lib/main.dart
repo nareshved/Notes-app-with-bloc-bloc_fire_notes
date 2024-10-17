@@ -32,17 +32,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
+    return const ScreenUtilInit(
       designSize: ScreenUtil.defaultSize,
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
-        theme: ThemeData.dark(
-          useMaterial3: true,
-        ),
+        // theme: ThemeData.dark(
+        //   useMaterial3: true,
+        // ),
         debugShowCheckedModeBanner: false,
         title: 'blocFire Notes',
-        home: const SplashPage(),
+        home: SplashPage(),
       ),
     );
   }

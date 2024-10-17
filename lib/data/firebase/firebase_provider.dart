@@ -122,4 +122,31 @@ class FirebaseProvider {
 
     return await firebaseFireStore.collection(collectionUsers).get();
   }
+
+  static Future<void> updateNotes(String noteId, NoteModel updatedNote) async {
+    return await firebaseFireStore
+        .collection(collectionUsers)
+        .doc(firebaseCurrentUser)
+        .collection(collectionNotes)
+        .doc(noteId)
+        .update(updatedNote.toDoc());
+  }
+
+  static Future<void> deleteNote(String noteId) async {
+    return await firebaseFireStore
+        .collection(collectionUsers)
+        .doc(firebaseCurrentUser)
+        .collection(collectionNotes)
+        .doc(noteId)
+        .delete();
+  }
 }
+
+
+// home / notes
+
+// FirebaseProvider.firebaseFireStore
+//             .collection("users")
+//             .doc(FirebaseProvider.firebaseCurrentUser)
+//             .collection("notes")
+//             .snapshots()

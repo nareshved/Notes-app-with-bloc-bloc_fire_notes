@@ -2,6 +2,15 @@
 
 A new Flutter project.
 
+Create a Complete Notes App with Bloc and Firebase Database
+
+
+Features
+
+Add, edit, and delete Notes
+User-friendly interface
+Dark mode support
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
