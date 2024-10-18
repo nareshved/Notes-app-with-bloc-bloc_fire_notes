@@ -18,87 +18,88 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Image.asset(
-              "assets/images/login.png",
-              fit: BoxFit.fitWidth,
-              height: 250.h,
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            const Text("Welcome back login!"),
-            SizedBox(
-              height: 3.h,
-            ),
-            CustomTextField(
-              mtController: emailController,
-              mHindText: "enter email",
-              mKeyboardtype: TextInputType.emailAddress,
-              mSuffIcon: CupertinoIcons.mail,
-            ),
-            CustomTextField(
-              mtController: passwordController,
-              mHindText: "enter Password",
-              mKeyboardtype: TextInputType.visiblePassword,
-              mSuffIcon: CupertinoIcons.lock,
-            ),
-            BlocConsumer<RegisterBloc, RegisterUserStates>(
-              listener: (context, state) {
-                if (state is RegisterUserErrorState) {
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(SnackBar(content: Text(state.errorMsg)));
-                }
-              },
-              builder: (context, state) {
-                if (state is RegisterUserLoadingState) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const CircularProgressIndicator(),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      ButttonWidgetApp(
-                        btnName: "Log In",
-                        onTap: () {},
-                      ),
-                    ],
-                  );
-                }
-                // if (state is RegisterUserErrorState) {
-                //   return Center(
-                //     child: Text(state.errorMsg),
-                //   );
-                // }
-
-                return ButttonWidgetApp(
-                  btnName: "Log In",
-                  onTap: () async {
-                    if (emailController.text.isNotEmpty &&
-                        passwordController.text.isNotEmpty) {
-                      var email = emailController.text.toString();
-                      var password = passwordController.text.toString();
-
-                      BlocProvider.of<RegisterBloc>(context).add(LoginUserEvent(
-                          userEmail: email,
-                          userPassword: password,
-                          ctx: context));
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Text("please fill all details")));
-                    }
-
-                    emailController.clear();
-                    passwordController.clear();
-                  },
+      body: ListView(
+        children: [
+          Image.asset(
+            "assets/images/login.png",
+            fit: BoxFit.fitWidth,
+            height: 300.h,
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
+          const Text(
+            "Welcome back login!",
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: 3.h,
+          ),
+          CustomTextField(
+            mtController: emailController,
+            mHindText: "enter email",
+            mKeyboardtype: TextInputType.emailAddress,
+            mSuffIcon: CupertinoIcons.mail,
+          ),
+          CustomTextField(
+            mtController: passwordController,
+            mHindText: "enter Password",
+            mKeyboardtype: TextInputType.visiblePassword,
+            mSuffIcon: CupertinoIcons.lock,
+          ),
+          BlocConsumer<RegisterBloc, RegisterUserStates>(
+            listener: (context, state) {
+              if (state is RegisterUserErrorState) {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text(state.errorMsg)));
+              }
+            },
+            builder: (context, state) {
+              if (state is RegisterUserLoadingState) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const CircularProgressIndicator(),
+                    SizedBox(
+                      width: 15.h,
+                    ),
+                    ButttonWidgetApp(
+                      btnName: "Log In",
+                      onTap: () {},
+                    ),
+                  ],
                 );
-              },
-            ),
-          ],
-        ),
+              }
+              // if (state is RegisterUserErrorState) {
+              //   return Center(
+              //     child: Text(state.errorMsg),
+              //   );
+              // }
+
+              return ButttonWidgetApp(
+                btnName: "Log In",
+                onTap: () async {
+                  if (emailController.text.isNotEmpty &&
+                      passwordController.text.isNotEmpty) {
+                    var email = emailController.text.toString();
+                    var password = passwordController.text.toString();
+
+                    BlocProvider.of<RegisterBloc>(context).add(LoginUserEvent(
+                        userEmail: email,
+                        userPassword: password,
+                        ctx: context));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("please fill all details")));
+                  }
+
+                  emailController.clear();
+                  passwordController.clear();
+                },
+              );
+            },
+          ),
+        ],
       ),
     );
   }
