@@ -21,6 +21,7 @@ class _HomeBottomNavbarState extends State<HomeBottomNavbar> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: NavigationBar(
+        indicatorColor: Colors.deepOrange,
         selectedIndex: mSelectedIndex,
         onDestinationSelected: (value) {
           setState(() {

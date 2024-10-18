@@ -50,8 +50,8 @@ final mylightTheme = ThemeData(
 final mydarkTheme = ThemeData(
   fontFamily: "Merienda",
   useMaterial3: true,
-  primaryColor: Colors.deepOrange,
-  secondaryHeaderColor: Colors.teal[200],
+  // primaryColor: Colors.deepOrange,
+  // secondaryHeaderColor: Colors.teal[200],
   hintColor: Colors.amber[300],
   hoverColor: Colors.orangeAccent,
   dividerColor: Colors.grey[400],
@@ -59,27 +59,27 @@ final mydarkTheme = ThemeData(
     headlineMedium: TextStyle(
       fontSize: 34,
       fontFamily: "Merienda",
-      fontWeight: FontWeight.w700,
+      //  fontWeight: FontWeight.w700,
     ),
     bodyLarge: TextStyle(
-      fontSize: 24,
+      fontSize: 16,
       fontFamily: "Merienda",
-      fontWeight: FontWeight.w700,
+      //   fontWeight: FontWeight.w700,
     ),
     bodyMedium: TextStyle(
-      fontSize: 20,
+      fontSize: 14,
       fontFamily: "Merienda",
-      fontWeight: FontWeight.w400,
+      //    fontWeight: FontWeight.w400,
     ),
     bodySmall: TextStyle(
-      fontSize: 18,
+      fontSize: 10,
       fontFamily: "Merienda",
-      fontWeight: FontWeight.w400,
+      //    fontWeight: FontWeight.w400,
     ),
     labelMedium: TextStyle(
       fontSize: 16,
       fontFamily: "Merienda",
-      fontWeight: FontWeight.w400,
+      //   fontWeight: FontWeight.w400,
     ),
 
     // bodyMedium: TextStyle(color: Colors.black87),
@@ -87,7 +87,7 @@ final mydarkTheme = ThemeData(
   ),
   colorScheme: const ColorScheme.dark(
     brightness: Brightness.dark,
-    primary: Colors.deepOrange,
-    secondary: Colors.teal,
+    // primary: Colors.deepOrange,
+    // secondary: Colors.teal,
   ),
 );

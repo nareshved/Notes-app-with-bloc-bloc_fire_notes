@@ -32,9 +32,6 @@ void callMyBottomSheet(BuildContext context,
     constraints: const BoxConstraints(maxWidth: double.infinity),
     context: context,
     builder: (context) {
-      noteTitleController.text = currNotesTitle;
-      noteDescController.text = currNotesDesc;
-
       return ListView(
         children: [
           Text(
