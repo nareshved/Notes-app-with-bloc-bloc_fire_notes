@@ -40,25 +40,25 @@ class HomePage extends StatelessWidget {
       body: StreamBuilder(
         stream: FirebaseProvider.getNotes(),
         builder: (context, snapshot) {
-          if (snapshot.data!.docs.isEmpty) {
-            return const Center(
-              child: Text(
-                "Add new note first! ❤",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            );
-            // return Center(
-            //   child: Column(
-            //     children: [
-            //       Lottie.asset("lottie/no-notes.json", fit: BoxFit.fitWidth),
-            //       const Text(
-            //         "Add new note first! ❤",
-            //         style: TextStyle(fontWeight: FontWeight.bold),
-            //       )
-            //     ],
-            //   ),
-            // );
-          }
+          // if (snapshot.data!.docs.isEmpty) {
+          //   return const Center(
+          //     child: Text(
+          //       "Add new note first! ❤",
+          //       style: TextStyle(fontWeight: FontWeight.bold),
+          //     ),
+          //   );
+          //   // return Center(
+          //   //   child: Column(
+          //   //     children: [
+          //   //       Lottie.asset("lottie/no-notes.json", fit: BoxFit.fitWidth),
+          //   //       const Text(
+          //   //         "Add new note first! ❤",
+          //   //         style: TextStyle(fontWeight: FontWeight.bold),
+          //   //       )
+          //   //     ],
+          //   //   ),
+          //   // );
+          // }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
@@ -197,11 +197,13 @@ class HomePage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             CustomTextField(
+                obs: false,
                 mtController: noteTitleController,
                 mHindText: "Note title",
                 mPreIcon: CupertinoIcons.pencil_circle_fill,
                 mKeyboardtype: TextInputType.text),
             CustomTextField(
+                obs: false,
                 mtController: noteDescController,
                 mHindText: "Note Description",
                 mPreIcon: CupertinoIcons.pencil_circle_fill,

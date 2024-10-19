@@ -40,11 +40,13 @@ void callMyBottomSheet(BuildContext context,
             textAlign: TextAlign.center,
           ),
           CustomTextField(
+              obs: false,
               mtController: noteTitleController,
               mHindText: "Note title",
               mPreIcon: CupertinoIcons.pencil_circle_fill,
               mKeyboardtype: TextInputType.text),
           CustomTextField(
+              obs: false,
               mtController: noteDescController,
               mHindText: "Note Description",
               mPreIcon: CupertinoIcons.pencil_circle_fill,
